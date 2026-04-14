@@ -22,7 +22,6 @@ export default function App() {
       <Hero />
       <Portfolio />
       <About />
-      <Services />
       <Contact />
       <Footer />
     </main>

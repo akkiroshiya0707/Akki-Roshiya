@@ -44,24 +44,25 @@ const Contact = () => {
             </div>
 
             <div className="space-y-10">
-              <div className="flex items-start gap-6 group">
-                <div className="w-10 h-10 rounded-minimal bg-surface flex items-center justify-center text-accent group-hover:shadow-[0_0_20px_rgba(255,106,0,0.2)] transition-all duration-500">
-                  <Mail size={18} />
-                </div>
-                <div>
-                  <span className="text-accent text-[8px] uppercase tracking-[0.4em] font-bold block mb-1">Email</span>
-                  <a href="mailto:akkiroshiya77@gmail.com" className="text-lg md:text-xl hover:text-accent transition-colors">akkiroshiya77@gmail.com</a>
-                </div>
+              <div className="group">
+                <span className="text-accent text-[8px] uppercase tracking-[0.4em] font-bold block mb-2">Email</span>
+                <a href="mailto:akkiroshiya77@gmail.com" className="text-lg md:text-xl hover:text-accent transition-colors font-light">akkiroshiya77@gmail.com</a>
               </div>
 
-              <div className="flex items-start gap-6 group">
-                <div className="w-10 h-10 rounded-minimal bg-surface flex items-center justify-center text-accent group-hover:shadow-[0_0_20px_rgba(255,106,0,0.2)] transition-all duration-500">
-                  <MapPin size={18} />
-                </div>
-                <div>
-                  <span className="text-accent text-[8px] uppercase tracking-[0.4em] font-bold block mb-1">Location</span>
-                  <p className="text-lg md:text-xl">Ahmedabad, India</p>
-                </div>
+              <div className="group">
+                <span className="text-accent text-[8px] uppercase tracking-[0.4em] font-bold block mb-2">PHONE</span>
+                <a href="tel:+919825483548" className="text-lg md:text-xl hover:text-accent transition-colors font-light">+91 98254 83548</a>
+              </div>
+
+              <div className="group">
+                <span className="text-accent text-[8px] uppercase tracking-[0.4em] font-bold block mb-2">Location</span>
+                <p className="text-lg md:text-xl font-light">Ahmedabad, India</p>
+              </div>
+
+              <div className="pt-6">
+                <p className="text-muted/60 text-[10px] uppercase tracking-[0.3em] font-medium italic">
+                  “Available for projects & collaborations”
+                </p>
               </div>
             </div>
           </div>

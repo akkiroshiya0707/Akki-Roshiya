@@ -13,62 +13,59 @@ const Portfolio = () => {
     ? PROJECTS 
     : PROJECTS.filter((p) => p.category === filter);
 
-  const renderProject = (project: any, index: number) => (
-    <motion.div
-      key={project.id}
-      layout
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-      className="group relative w-full"
-    >
-      <div className="space-y-6">
-        {/* Visual Focus */}
-        <div 
-          onClick={() => setSelectedVideo(project.videoUrls || project.videoUrl)}
-          className="relative aspect-[16/9] overflow-hidden rounded-minimal border border-white/5 cursor-pointer block"
-        >
-          <motion.img
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-            src={project.imageUrl}
-            alt={project.title}
-            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
-            style={{ objectPosition: project.customPosition || 'center' }}
-            referrerPolicy="no-referrer"
-          />
-          
-          {/* Play Button Overlay */}
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-black/20">
-            <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center text-white shadow-[0_0_40px_rgba(255,106,0,0.4)] scale-75 group-hover:scale-100 transition-transform duration-500">
-              <Play size={24} fill="currentColor" />
+  const renderProject = (project: any, index: number) => {
+    const isLarge = index < 2;
+    
+    return (
+      <motion.div
+        key={project.id}
+        layout
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+        className={`group relative w-full ${isLarge ? 'md:col-span-2' : 'md:col-span-1'}`}
+      >
+        <div className="space-y-4">
+          {/* Visual Focus */}
+          <div 
+            onClick={() => setSelectedVideo(project.videoUrls || project.videoUrl)}
+            className="relative aspect-[16/9] overflow-hidden rounded-minimal border border-white/5 cursor-pointer block bg-surface/20"
+          >
+            <motion.img
+              whileHover={{ scale: 1.03 }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              src={project.imageUrl}
+              alt={project.title}
+              className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
+              style={{ objectPosition: project.customPosition || 'center' }}
+              referrerPolicy="no-referrer"
+            />
+            
+            {/* Play Button Overlay */}
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-black/30">
+              <div className="w-14 h-14 bg-accent rounded-full flex items-center justify-center text-white shadow-[0_0_30px_rgba(255,106,0,0.3)] scale-90 group-hover:scale-100 transition-transform duration-500">
+                <Play size={20} fill="currentColor" />
+              </div>
+            </div>
+          </div>
+
+          {/* Minimal Info */}
+          <div className="flex items-center justify-between gap-4 px-1">
+            <h3 className="text-[9px] md:text-[10px] uppercase tracking-[0.4em] font-medium text-text/60 group-hover:text-accent transition-colors duration-500">
+              {project.title.split(' — ')[0]}
+            </h3>
+            
+            <div className="flex items-center gap-4">
+              <span className="text-muted/30 text-[8px] uppercase tracking-[0.2em] font-mono">
+                {project.category}
+              </span>
             </div>
           </div>
         </div>
-
-        {/* Minimal Info */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 px-1">
-          <div className="flex items-center gap-4">
-            <span className="text-muted text-[9px] uppercase tracking-[0.4em] font-bold whitespace-nowrap">
-              Cinematography
-            </span>
-            <div className="h-[1px] w-6 bg-white/10" />
-            <h3 className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-medium text-text/80 group-hover:text-accent transition-colors duration-500">
-              {project.title.split(' — ')[0]}
-            </h3>
-          </div>
-          
-          <div className="flex items-center gap-6">
-            <span className="text-muted/30 text-[9px] uppercase tracking-[0.2em] font-mono">
-              {project.category}
-            </span>
-            <span className="text-muted/30 text-[9px] font-mono">{project.year}</span>
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  );
+      </motion.div>
+    );
+  };
 
   return (
     <section id="portfolio" className="section-padding bg-bg">
@@ -78,11 +75,11 @@ const Portfolio = () => {
             <div className="flex items-center gap-4 mb-2">
               <div className="h-[1px] w-8 bg-accent/50" />
               <span className="text-accent uppercase tracking-[0.6em] text-[9px] font-bold">
-                Archive
+                Work
               </span>
             </div>
             <h2 className="text-xl md:text-2xl font-display font-bold uppercase tracking-[0.2em] text-text/90">
-              Selected Works
+              Selected Projects
             </h2>
           </div>
 
@@ -107,7 +104,7 @@ const Portfolio = () => {
           </div>
         </div>
 
-        <div className="space-y-24 md:space-y-40">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20 md:gap-y-32">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, index) => renderProject(project, index))}
           </AnimatePresence>

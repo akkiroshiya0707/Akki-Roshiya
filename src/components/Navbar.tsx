@@ -17,7 +17,6 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Work', href: '#portfolio' },
     { name: 'About', href: '#about' },
-    { name: 'Expertise', href: '#services' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -44,10 +43,6 @@ const Navbar = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all duration-500 group-hover:w-full" />
             </a>
           ))}
-          <div className="flex items-center gap-8 text-muted ml-8">
-            <a href="#" className="hover:text-accent transition-all duration-500"><Instagram size={16} /></a>
-            <a href="#" className="hover:text-accent transition-all duration-500"><Youtube size={16} /></a>
-          </div>
         </div>
 
         {/* Mobile Toggle */}
@@ -79,11 +74,6 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
-            <div className="flex gap-12 mt-12 text-muted">
-              <Instagram size={28} />
-              <Youtube size={28} />
-              <Mail size={28} />
-            </div>
           </motion.div>
         )}
       </AnimatePresence>

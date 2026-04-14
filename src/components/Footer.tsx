@@ -21,24 +21,13 @@ const Footer = () => {
             <p className="text-muted text-base md:text-lg font-light leading-relaxed max-w-sm">
               I craft visual narratives focused on clarity and professional storytelling for brands and commercials.
             </p>
-            <div className="flex gap-4 md:gap-6">
-              {[Instagram, Youtube, Twitter].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="w-10 h-10 md:w-12 md:h-12 rounded-minimal border border-white/5 flex items-center justify-center text-muted hover:text-accent hover:border-accent hover:shadow-[0_0_20px_rgba(255,106,0,0.2)] transition-all duration-500"
-                >
-                  <Icon size={18} />
-                </a>
-              ))}
-            </div>
           </div>
 
           <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-10 md:gap-12">
             <div className="space-y-6 md:space-y-8">
               <h4 className="text-[10px] uppercase tracking-[0.4em] text-accent font-bold">Navigation</h4>
               <ul className="space-y-3 md:space-y-4">
-                {['Work', 'About', 'Services', 'Contact'].map((item) => (
+                {['Work', 'About', 'Contact'].map((item) => (
                   <li key={item}>
                     <a
                       href={`#${item.toLowerCase()}`}
@@ -66,16 +55,10 @@ const Footer = () => {
             </div>
 
             <div className="hidden md:block space-y-8">
-              <h4 className="text-[10px] uppercase tracking-[0.4em] text-accent font-bold">Social</h4>
-              <ul className="space-y-4">
-                {['Instagram', 'Vimeo', 'Behance', 'LinkedIn'].map((item) => (
-                  <li key={item}>
-                    <a href="#" className="text-muted hover:text-accent text-sm font-light transition-all duration-500 hover:translate-x-2 inline-block">
-                      {item}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+              <h4 className="text-[10px] uppercase tracking-[0.4em] text-accent font-bold">Availability</h4>
+              <p className="text-muted text-sm font-light leading-relaxed">
+                Available for projects <br /> & collaborations worldwide.
+              </p>
             </div>
           </div>
         </div>
